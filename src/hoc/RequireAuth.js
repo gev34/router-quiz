@@ -7,14 +7,19 @@ export const RequireAuth = ({children}) => {
     const {userLogin} = useAuth();
     const {userPassword} = useAuth();
    
+    // console.log(userLogin);
+    // console.log(userPassword);
+   // console.log(loginData);
+   
+    for(let i = 0 ; i < loginData.length ; i++){
+        if(loginData[i].email === userLogin && loginData[i].password === userPassword){
+          //  console.log(loginData[i]);
+          return children;
+        }
+        
+        return <Navigate to = '/login' state={{from:location}}/>;
 
-        loginData.map((user) => {
-            // console.log(user.email);
-            // console.log(userLogin)
-            if(user.email === userLogin && user.password === userPassword) {
-                return children;
-            }
-        })
-        return <Navigate to = '/login' state={{from:location}}/>
+        
+    }
        
-}
+}   
