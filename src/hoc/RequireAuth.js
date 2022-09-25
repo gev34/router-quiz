@@ -12,25 +12,42 @@ export const RequireAuth = ({children}) => {
    // console.log(loginData);
    
     // for(let i = 0 ; i < loginData.length ; i++){
-    //     console.log(loginData[i]);
+    //    // console.log(loginData[i]);
     //     if(loginData[i].email === userLogin && loginData[i].password === userPassword){
+    //         console.log('true')
     //       return children;
-    //     }
+    //     } 
+    //     console.log('false')
     //       return  <Navigate to = '/login' state={{from:location}}/>
         
   
         
     // }
+
+    
     return (
         
       loginData.map((user) => {
-            if(user.email !== userLogin && user.password !== userPassword) {
+            if(user.email !== userLogin || user.password !== userPassword) {
+            console.log('false')
             return <Navigate to = '/login' state={{from:location}}/>  
             }  
-            return children;     
-               
+                console.log('true')
+                return children;        
         } )
     )
         
       
+// 
+// let i = 0 ;
+// while(i < loginData.length) {
+//     if(loginData[i].email !== userLogin ||loginData[i].password !== userPassword){
+//                console.log('false')
+//               return  <Navigate to = '/login' state={{from:location}}/>
+//             } else{
+//                 console.log('true')
+//                 return children;
+//             }       
+// }
+// 
 }
