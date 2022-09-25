@@ -39,7 +39,7 @@ export const LoginPage = () =>{
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Name :     <input name = "username"/>
+                    Name :     <input name = "username"  type = "text"/>
                 </label>
                 <label>
                     password : <input type="password" name = "password"/>
