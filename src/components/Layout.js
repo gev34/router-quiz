@@ -6,8 +6,8 @@ export const Layout = () =>{
 
     const {signOut} = useAuth();
     const navigate = useNavigate();
-
-    console.log("layout called")
+  
+   //console.log("layout called")
     return (
         <>
         <nav>

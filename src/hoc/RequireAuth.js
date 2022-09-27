@@ -24,10 +24,8 @@ export const RequireAuth = ({children}) => {
         
     // }
 
-    
-    return (
-        
-      loginData.map((user) => {
+    //console.log(userLogin);
+  return loginData.map((user) => {
             if(user.email !== userLogin || user.password !== userPassword) {
             console.log('false')
             return <Navigate to = '/login' state={{from:location}}/>  
@@ -35,7 +33,7 @@ export const RequireAuth = ({children}) => {
                 console.log('true')
                 return children;        
         } )
-    )
+    
         
       
 // 

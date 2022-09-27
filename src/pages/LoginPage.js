@@ -1,9 +1,9 @@
-import {useNavigate , useLocation} from 'react-router-dom'
+import {useNavigate , useLocation , Navigate} from 'react-router-dom'
 import { useAuth } from '../hook/useAuth';
 import loginData from '../Datas/LoginData/loginData';
 import './LoginPage.css'
 
-export const LoginPage = () =>{
+export const LoginPage = ({children}) =>{
 
 
 
@@ -11,10 +11,10 @@ export const LoginPage = () =>{
     const location = useLocation();
     const {signIn} = useAuth();
 
-    const fromPage = location.state.from.pathname;
-    //console.log(fromPage);
+   // const fromPage = location.state.from.pathname;
+   // console.log(fromPage);
 
-  
+  console.log(location)
     const handleRegister = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -31,8 +31,16 @@ export const LoginPage = () =>{
         const form = event.target;
         const userLogin = form.username.value;
         const userPassword = form.password.value;
-        signIn(userLogin , userPassword ,() => navigate(fromPage , {replace : true}));
-    }
+        signIn(userLogin , userPassword );
+        
+        for(let i = 0 ; i < loginData.length ; i++){
+        // console.log(loginData[i]);
+            if(loginData[i].email === userLogin && loginData[i].password === userPassword){
+                console.log(true);
+                return children
+            } 
+          
+    }}
     return (
         <div className='loginPage'>
         <div className='div'>
