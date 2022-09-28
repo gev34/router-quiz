@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
     setUserPassword(null);
     cb();
   };
-  //console.log(userLogin)
+
   const value = { userLogin, userPassword, signIn, signOut };
   return (
     <>
